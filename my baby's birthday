@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy Birthday, Marius!</title>
+<style>
+  :root{ --bg:#ffe9f1; --ink:#3b1f4a; --pink:#ff6fa5; --sun:#ffd23f; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#25133a; --ink:#fff0f6; } }
+  *{box-sizing:border-box;margin:0}
+  body{min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);
+       font-family:"Trebuchet MS",system-ui,sans-serif;text-align:center;padding:24px}
+  h1{font-size:clamp(2.2rem,8vw,4.5rem);line-height:1.05}
+  .name{color:var(--pink)}
+  p{margin-top:10px;opacity:.85}
+  svg{width:min(340px,80vw);height:auto;margin-top:12px;overflow:visible}
+  .flame{transform-origin:center bottom;transform-box:fill-box;animation:flicker .5s infinite alternate}
+  .out .flame{display:none}
+  @keyframes flicker{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.15,.9) rotate(3deg)}}
+  button{margin-top:18px;padding:12px 26px;border:0;border-radius:999px;background:var(--ink);color:var(--bg);
+         font:600 1rem inherit;cursor:pointer}
+  button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){.flame{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Happy Birthday,<br><span class="name" id="name">Marius</span>!</h1>
+  <!-- Change the name above, right here ↑ -->
+
+  <svg id="cake" viewBox="0 0 300 260" role="img" aria-label="Birthday cake with three candles">
+    <!-- plate -->
+    <ellipse cx="150" cy="238" rx="135" ry="14" fill="#d9d4e6"/>
+    <!-- bottom layer -->
+    <rect x="30" y="160" width="240" height="75" rx="14" fill="#7a4a32"/>
+    <path d="M30 175 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 q20 22 40 0 V160 H30Z" fill="#fff6e8"/>
+    <!-- top layer -->
+    <rect x="65" y="100" width="170" height="62" rx="12" fill="#ff6fa5"/>
+    <path d="M65 112 q14 18 28 0 q14 18 28 0 q14 18 28 0 q14 18 28 0 q14 18 28 0 q14 18 28 0 V100 H65Z" fill="#fff6e8"/>
+    <!-- sprinkles -->
+    <g stroke-width="4" stroke-linecap="round">
+      <line x1="90" y1="140" x2="97" y2="136" stroke="#ffd23f"/><line x1="130" y1="148" x2="137" y2="150" stroke="#3ddbb0"/>
+      <line x1="175" y1="138" x2="182" y2="142" stroke="#ffd23f"/><line x1="205" y1="148" x2="211" y2="144" stroke="#fff"/>
+      <line x1="60" y1="205" x2="67" y2="209" stroke="#ff6fa5"/><line x1="130" y1="210" x2="137" y2="206" stroke="#ffd23f"/>
+      <line x1="200" y1="208" x2="207" y2="212" stroke="#3ddbb0"/><line x1="245" y1="200" x2="240" y2="206" stroke="#ffd23f"/>
+    </g>
+    <!-- candles -->
+    <g>
+      <rect x="105" y="62" width="12" height="40" rx="3" fill="#3ddbb0"/>
+      <rect x="144" y="52" width="12" height="50" rx="3" fill="#ffd23f"/>
+      <rect x="183" y="62" width="12" height="40" rx="3" fill="#6ea8ff"/>
+      <path class="flame" d="M111 58 q-9-14 0-26 q9 12 0 26Z" fill="#ff9a2e"/>
+      <path class="flame" d="M150 48 q-9-14 0-26 q9 12 0 26Z" fill="#ff9a2e" style="animation-delay:.15s"/>
+      <path class="flame" d="M189 58 q-9-14 0-26 q9 12 0 26Z" fill="#ff9a2e" style="animation-delay:.3s"/>
+    </g>
+  </svg>
+
+  <p id="hint">Make a wish, then blow out the candles.</p>
+  <button id="btn">Blow out candles</button>
+</main>
+
+<script>
+  const cake = document.getElementById('cake'), btn = document.getElementById('btn'), hint = document.getElementById('hint');
+  btn.addEventListener('click', () => {
+    const out = cake.classList.toggle('out');
+    btn.textContent = out ? 'Light them again' : 'Blow out candles';
+    hint.textContent = out ? 'I thank God for your life and I hope your wish comes true! 🎉' : 'Make a wish, then blow out the candles baby.';
+  });
+</script>
+</body>
+</html>
