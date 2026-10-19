@@ -66,7 +66,7 @@
 </head>
 <body>
     <div id="content">
-        <h2 id="question">Would you like a Binondo Date w me, baby?</h2>
+        <h2 id="question">Would you like a little date w me after my class baby, baby?</h2>
         <button id="yesButton">YES</button>
         <button id="noButton">NO</button>
         <p id="message"></p>
@@ -98,20 +98,20 @@
                 this.style.position = 'absolute';
                 this.style.left = Math.random() * window.innerWidth + 'px';
                 this.style.top = Math.random() * window.innerHeight + 'px';
-                document.getElementById('message').innerText = 'Are you sure?';
+                document.getElementById('message').innerText = 'Are you sure baby?';
                 document.getElementById('message').style.position = 'absolute';
                 document.getElementById('message').style.left = this.style.left;
                 document.getElementById('message').style.top = parseFloat(this.style.top) + 50 + 'px';
             } else if (noClickCount == 15) {
-                document.getElementById('message').innerText = 'Oh No! You broke the button :c';
+                document.getElementById('message').innerText = 'Oh no! You broke the button baby :c';
                 this.disabled = true;
                 this.style.color = grey;
-                document.getElementById('message').innerText = 'Oh No! You broke the button :c';
+                document.getElementById('message').innerText = 'Oh No! You broke the button baby :c';
             }
         });
 
         document.getElementById('yesButton').addEventListener('click', function() {                 //YESSSS button
-            document.getElementById('question').innerText = 'OKIEEE, SEE YOU, LOVE YOU';
+            document.getElementById('question').innerText = 'OKIEEE BIRTHDAY BOY, SEE YOU, I LOVE YOU';
             for (var i = 0; i < 100; i++) {
                 var heart = document.createElement('div');
                 heart.className = 'heart';
